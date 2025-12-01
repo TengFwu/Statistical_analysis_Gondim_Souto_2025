@@ -1,15 +1,24 @@
+
+# Packages
+if (!require("readxl")) install.packages("readxl")
 library(readxl)
+
+if (!require("tidyverse")) install.packages("tidyverse")
 library(tidyverse)
+
+if (!require("survival")) install.packages("survival")
 library(survival)
+
+if (!require("survminer")) install.packages("survminer")
 library(survminer)
+
+if (!require("psych")) install.packages("psych")
 library(psych)
 
 
 # Dataset
 
-setwd("D:/Pós-graduação/Plaquetas e câncer/Artigo")
-
-file <- "Supplementary data.xlsx"
+file <- "Supplementary_data.xlsx"
 
 data <- read_xlsx(file)
 
@@ -56,10 +65,10 @@ ggsurvplot(
   palette = c("#1b9e77", "#d95f02"),
   xlab = "Survival time (months)",
   ylab = "Survival probability",
-  font.x = 16,        # tamanho da fonte do eixo X
-  font.y = 16,        # tamanho da fonte do eixo Y
-  font.legend = 16,   # tamanho da fonte da legenda
-  font.tickslab = 16  # tamanho dos números nos eixos
+  font.x = 16,        
+  font.y = 16,        
+  font.legend = 16,   
+  font.tickslab = 16  
 )
 
 # Multivariate Cox model
@@ -95,10 +104,10 @@ ggsurvplot(
   palette = c("#1b9e77", "#d95f02"),
   xlab = "Survival time (months)",
   ylab = "Survival probability",
-  font.x = 16,        # tamanho da fonte do eixo X
-  font.y = 16,        # tamanho da fonte do eixo Y
-  font.legend = 16,   # tamanho da fonte da legenda
-  font.tickslab = 16  # tamanho dos números nos eixos
+  font.x = 16,        
+  font.y = 16,        
+  font.legend = 16,  
+  font.tickslab = 16 
 )
 
 
@@ -140,10 +149,10 @@ ggsurvplot(
   palette = c("#1b9e77", "#d95f02"),
   xlab = "Survival time (months)",
   ylab = "Survival probability",
-  font.x = 16,        # tamanho da fonte do eixo X
-  font.y = 16,        # tamanho da fonte do eixo Y
-  font.legend = 16,   # tamanho da fonte da legenda
-  font.tickslab = 16  # tamanho dos números nos eixos
+  font.x = 16,        
+  font.y = 16,        
+  font.legend = 16,   
+  font.tickslab = 16  
 )
 
 
@@ -210,14 +219,13 @@ ggsurvplot(
   palette = c("#1b9e77", "#d95f02"),
   xlab = "Survival time (months)",
   ylab = "Survival probability",
-  font.x = 16,        # tamanho da fonte do eixo X
-  font.y = 16,        # tamanho da fonte do eixo Y
-  font.legend = 16,   # tamanho da fonte da legenda
-  font.tickslab = 16  # tamanho dos números nos eixos
+  font.x = 16,        
+  font.y = 16,        
+  font.legend = 16,   
+  font.tickslab = 16  
 )
 
   
-
 
 # Multivariate Cox model
 modelo_cox_mast <- coxph(
@@ -292,6 +300,7 @@ modelo_cox_sarcoma <- coxph(
 )
 
 summary(modelo_cox_sarcoma)
+
 
 
 
