@@ -131,6 +131,9 @@ thrombo_class_neo <- thrombo_class
 thrombo_class_mama <- thrombo_class_neo %>% 
   filter(Diagnosis == "Mammary carcinoma")
 
+# If you want to analyse only the histopathological diagnosis
+# thrombo_class_mama <- thrombo_class_mama %>% filter(`Cito/Histo` == "Histopathology") 
+
 # Kaplan-meier
 fit_thromb_mama <- survfit(Surv(time = `Survival time (month)`, event = Censure == 1) ~ Intensity, 
                             data = thrombo_class_mama)
@@ -262,7 +265,7 @@ ggsurvplot(
 
 # Multivariate Cox model
 modelo_cox_heman <- coxph(
-  Surv(time = `Survival time (month)`, event = Censure == 1) ~ Intensity,
+  Surv(time = `Survival time (month)`, event = Censure == 1) ~ Intensity + meta_status,
   data = thrombo_class_heman
 )
 
@@ -295,11 +298,12 @@ ggsurvplot(
 
 # Multivariate Cox model
 modelo_cox_sarcoma <- coxph(
-  Surv(time = `Survival time (month)`, event = Censure == 1) ~ Intensity,
+  Surv(time = `Survival time (month)`, event = Censure == 1) ~ Intensity + meta_status,
   data = thrombo_class_sarcoma
 )
 
 summary(modelo_cox_sarcoma)
+
 
 
 
