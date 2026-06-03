@@ -1,6 +1,6 @@
 # Survival Analysis Script
 
-This repository contains the files needed for a survival analysis in R.
+This repository contains the files needed for a survival analysis in R related to the results obtained in this study (https://doi.org/10.1155/vmi/1271185).
 
 ## Files
 
